@@ -1,15 +1,11 @@
 import React from "react";
-class Clock extends React.Component {
-  //if props need to satate initialization use this systex for declare state
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     date: new Date().toLocaleTimeString(props.locale),
-  //   };
-  // }
+import Button from "./Button";
 
-  //else use shortcut
-  state = {date: new Date()};
+class Clock extends React.Component {
+  state = {
+    date: new Date(),
+    locale:"bn-BD"
+  };
 
 
   componentDidMount(){
@@ -19,25 +15,30 @@ class Clock extends React.Component {
     clearInterval(this.clockTimer)
   }
  tick(){
-
-  // this.setState((state,props)=>{
-  //   date:new Date()
-  // })
-
   this.setState({
     date:new Date()
   })
  }
 
-  // state={
-  //   time:new Date().toLocaleTimeString(this.props.locale)
-  // }
+ handleClick=(lc)=>{
+  
+     if(lc=="bn-BD"){
+       this.setState({locale:"en-US"});
+     }else{
+       this.setState({locale:"bn-BD"});
+     }
+ }
+
 
   render() {
+    console.log("Clock Component Rendering..")
+       
+    let {locale}=this.state
     return (
       <div className="App">
         <center>
-          <h1>{this.state.date.toLocaleTimeString(this.props.locale)}</h1>
+          <h1>{this.state.date.toLocaleTimeString(locale)}</h1>
+          <Button handleClick={this.handleClick} locale/>
         </center>
       </div>
     );
