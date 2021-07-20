@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDom from "react-dom";
-import Clock from './Clock'
+import App from './App'
 
+ReactDom.render(
+  <React.StrictMode>
+    <App/>
+  </React.StrictMode>,
+  document.getElementById("root")
+)
 
-
-ReactDom.render(<Clock locale="bn-BD"/>,document.getElementById("root")); 
 
