@@ -2,9 +2,9 @@ import React from "react";
 class Button extends React.Component{
 
     shouldComponentUpdate(nextProps){
-        const {handleClick:currentChange}=this.props;
-        const {handleClick:nextChange}=nextProps;
-        if(currentChange===nextChange){
+        const {handleClick:currentChange,locale:currentLocale}=this.props;
+        const {handleClick:nextChange,locale:nextLocale}=nextProps;
+        if(currentChange===nextChange && currentLocale===nextLocale){
             return false;
         }else{
             return true;
@@ -13,10 +13,14 @@ class Button extends React.Component{
 
 
     render(){
-        console.log("Button Component Rendering..")
-        let {handleClick,locale}=this.props
+        let {change,locale}=this.props
         return(
-            <button onClick={()=>handleClick(locale)}>Click Here</button>
+            <button onClick={()=>change(locale)}>
+                {
+                    locale==="bn-BD"?"Change ":"পরিবর্তন করুন"
+                }
+           
+                </button>
         )
     }
 
