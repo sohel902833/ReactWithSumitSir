@@ -1,11 +1,9 @@
-import ClockList from "./components/ClockList";
-
+import Calculator from "./components/Calculator";
 function App(){
-    const quantities=[1,2,3,4,5,6,7,8]
-    
+  
     return(
         <>
-            <ClockList quantity={quantities}/>
+        <Calculator/>
         </>
     )
 }
