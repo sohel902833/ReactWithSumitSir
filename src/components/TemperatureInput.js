@@ -11,7 +11,7 @@ export default function TemperatureInput({ scale, temperature, change }) {
       <fieldset>
         <legend>Enter Temperature in {scaleNames[scale]}</legend>
         <input
-          type="text"
+          type="number"
           value={temperature}
           onChange={(e) => change(e, scale)}
         />
